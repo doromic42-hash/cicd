@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+
+    steps:
+        - uses: actions/checkout@v2
+
+        - name: use node.js
+          uses: actions/setup-node@v2
+
+          with:
+           node-version: '14'
+        - name: install dependencies
+          run: npm install
+        - name: run app
+          run: node index.js
